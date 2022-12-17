@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from '../components/Header';
 import CategoriessContainer from '../components/CategoriessContainer';
-import './dashboard.scss';
 import ScrollableBannerImages from '../components/ScrollableBannerImages';
+import './dashboard.scss';
+import Post from '../components/Post';
 
 function Dashboard() {
   return (
@@ -13,6 +14,8 @@ function Dashboard() {
             Brands in Highlight
         </h3>
         <ScrollableBannerImages />
+        <div className="divider" />
+        <Post />
     </div>
   );
 }
