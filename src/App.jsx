@@ -3,6 +3,7 @@ import './App.scss';
 import Dashboard from './container/dashboard';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProfileDetails from './container/ProfileDetails';
+import VideoDetails from './components/VideoDetails';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/profileDetail",
     element: <ProfileDetails />,
+  },
+  {
+    path: "/videoDetails",
+    element: <VideoDetails />,
   },
 ]);
 

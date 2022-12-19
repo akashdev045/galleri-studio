@@ -4,6 +4,7 @@ import { ReactComponent as HeartBlack } from '../../assets/heartBlack.svg'
 import { ReactComponent as Shop } from '../../assets/shop.svg'
 import { ReactComponent as Wishlist } from '../../assets/wishlist.svg'
 import LazyLoadImage from '../LazyLoadImage';
+import VideoContainer from '../VideoContainer';
 import './post.scss';
 
 function Post({video = false}) {
@@ -34,9 +35,15 @@ function Post({video = false}) {
                     Follow
                 </div>
             </div>
-            <div className="postImage">
-                <LazyLoadImage />
-            </div>
+            {
+                video ? <div>
+                        <VideoContainer />
+                    </div> :
+                <div className="postImage">
+                    <LazyLoadImage />
+                </div>
+            }
+           
 
             <div className="relatedContent">
                 <div className="shopAll">
