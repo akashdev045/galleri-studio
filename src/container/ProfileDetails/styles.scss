@@ -4,7 +4,6 @@
     background-color: #f4f4f5;
     overflow: scroll;
     height: calc(100vh - 30px);
-    padding-top: 55px;
     
     .profileImageOut{
         position: relative;
@@ -63,7 +62,7 @@
 
     .stickyHeader{
         position: sticky;
-        top: -1px;
+        top: 55px;
         background-color: white;
         border-top: 2px solid #f4f4f5;
         z-index: 9;

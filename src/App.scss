@@ -17,8 +17,9 @@
     max-width: 450px;
     background-color: #f4f4f5;
     border: 1px solid rgb(228, 228, 228);
-    height: calc(100vh - 95px);
-    margin: 30px auto 0;
+    height: calc(100vh - 32px);
+    margin: 32px auto 0;
+    overflow: hidden;
   }
 }
 
