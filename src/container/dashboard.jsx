@@ -4,6 +4,7 @@ import CategoriessContainer from '../components/CategoriessContainer';
 import ScrollableBannerImages from '../components/ScrollableBannerImages';
 import './dashboard.scss';
 import Post from '../components/Post';
+import Recommended from '../components/Recommended';
 
 function Dashboard() {
   return (
@@ -14,6 +15,17 @@ function Dashboard() {
             Brands in Highlight
         </h3>
         <ScrollableBannerImages />
+        <div className="divider" />
+        <Post video={true}/>
+        <div className="divider" />
+        <Post />
+        <div className="divider" />
+        <Post />
+        <Recommended />
+        <div className="divider" />
+        <Post />
+        <div className="divider" />
+        <Post />
         <div className="divider" />
         <Post />
     </div>

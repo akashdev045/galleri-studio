@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Post from '../../components/Post';
 import './styles.scss'
@@ -22,9 +23,7 @@ function ProfileDetails() {
                   @Zinklondon
                 </span>
               </div>
-              <button>
-                + follow
-              </button>
+              <Button>+ FOLLOW</Button>
             </div>
             <div className="profileDes">
               <div className="followDetails">
