@@ -4,11 +4,13 @@ import Dashboard from './container/dashboard';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProfileDetails from './container/ProfileDetails';
 import VideoDetails from './components/VideoDetails';
+import Homepage2 from './container/theme2';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    // element: <Dashboard />,
+    element: <Homepage2 />
   },
   {
     path: "/profileDetail",
@@ -17,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/videoDetails",
     element: <VideoDetails />,
+  },
+  {
+    path: "/homepage2",
+    element: <Dashboard />,
   },
 ]);
 

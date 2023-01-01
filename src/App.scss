@@ -19,11 +19,18 @@
     border: 1px solid rgb(228, 228, 228);
     height: calc(100vh - 30px);
     margin: 30px auto 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
 }
 
 
 .divider{
   height: 15px;
+}
+
+
+@media only screen and (max-width: 991px){
+  .mainContainer .responsiveContainer{
+    margin-top: 0px;
+  }
 }

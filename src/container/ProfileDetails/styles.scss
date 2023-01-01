@@ -1,4 +1,6 @@
-
+img{
+    max-width: 100%;
+}
 
 .profileDetails{
     background-color: #f4f4f5;
@@ -83,3 +85,76 @@
         }
     }
 }
+
+.product-wap--flex-recom {
+    display: flex;
+    flex-wrap: wrap;
+    .recomded-col-wap {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.product-boxwap-elemnt {
+    border: 0.5px solid #d0d0d0;
+}
+.product-imgrecomded {
+    display: flex;
+    flex-direction: column;
+}
+.recom--discweb-titles {
+    padding: 5px;
+    background-color: #fff;
+}
+.head-product-web {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #434343;
+    font-weight: 500;
+}
+.short-disc-recom-mn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    color: #747474;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.price-head-wig {
+    display: inline-block;
+    font-size: 14px;
+    color: #434343;
+    font-weight: 500;
+}
+.wishlist--icon {
+    float: right;
+    margin-top: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

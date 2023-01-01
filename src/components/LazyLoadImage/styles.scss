@@ -30,4 +30,27 @@
   }
 }
 
+.carausal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carausal-image img {
+  display: block;
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.imgproduct--gm img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 72px !important;
+  max-height: 72px  !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
   
