@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProfileDetails from './container/ProfileDetails';
 import VideoDetails from './components/VideoDetails';
 import Homepage2 from './container/theme2';
+import ProfileSecond from './container/Profile2';
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/homepage2",
     element: <Dashboard />,
+  },
+  {
+    path: "/profile2",
+    element: <ProfileSecond />,
   },
 ]);
 
