@@ -16,7 +16,10 @@ import axios from 'axios';
 import ReactOwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-
+import Button from '../../components/Button';
+import HeaderSecond from '../../components/Header2';
+import PostSecond from '../../components/Post2';
+import productImg1 from "../../assets/productImg-1.jpg";
 
 function Homepage2() {
     //const imageDummy =  ""
@@ -32,8 +35,7 @@ function Homepage2() {
 
         await axios(config)
             .then(function (response) {
-                console.log(response, "response----->")
-                setHomeData(response?.data)
+                setHomeData(response.data)
             })
             .catch(function (error) {
                 console.log(error);
@@ -46,8 +48,14 @@ function Homepage2() {
 
     console.log(homeData, "homeData")
 
-    const heroBanners = homeData.find(item => item.name === "HERO_BANNER_CAROUSEL")
-    const RoundedTopInfluencers = homeData.find(item => item.name === "ROUNDED_IMAGE_CAROUSEL")
+    const heroBanners = homeData && homeData.length && homeData?.filter(item => item.name === "HERO_BANNER_CAROUSEL")[0] || {}
+    const RoundedTopInfluencers = homeData && homeData.length && homeData?.filter(item => item.name === "ROUNDED_IMAGE_CAROUSEL")[0] || {}
+    const liveStream = homeData && homeData.length && homeData?.filter(item => item.name === "MINI_IMAGE_CAROUSEL")[0] || {}
+    const profile = homeData && homeData.length && homeData?.filter(item => item.name === "FEED_TIMELINE")[0] || {}
+    const profileDetails = profile?.details?.meta[0]?.details
+    const imageDummy = "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+
+    console.log(homeData, "homeDatahomeDatahomeData")
 
     console.log(heroBanners, "heroBanners")
     console.log(RoundedTopInfluencers, "RoundedTopInfluencers")
@@ -64,9 +72,9 @@ function Homepage2() {
                     nav
                     items="1"
                 >
-                    <div className='carausal-image'>
+                    {/* <div className='carausal-image'>
                         <img src={Banner} alt="postImage" />
-                    </div>
+                    </div> */}
                     {heroBanners?.details?.meta?.map((item, index) => {
                         return (
                             <div className='carausal-image' key={index}>
@@ -79,7 +87,7 @@ function Homepage2() {
             <div className='top-influence-sect'>
                 <div className='container-width'>
                     <div className='heading-sect'>
-                        <h2 className='title-h2-head'>{heroBanners?.details?.title || "Top Influencers"}</h2>
+                        <h2 className='title-h2-head'>{RoundedTopInfluencers?.details?.title || "Top Influencers"}</h2>
                     </div>
                     <div className='influice--wrap-items'>
                         <ReactOwlCarousel
@@ -92,12 +100,12 @@ function Homepage2() {
                             dots={false}
                             items="4"
                         >
-                            {heroBanners?.details?.meta?.map((item, index) => {
+                            {RoundedTopInfluencers?.details?.meta?.map((item, index) => {
                                 return (
                                     <div class='item' key={index}>
                                         <div className='item--topcategry text-center'>
                                             <div className='imgproduct--gm'><img src={item?.thumbnail} alt="" /></div>
-                                            <h4 className='heading-gm-wigt' style={{color: "#fff"}}>Akash</h4>
+                                            <h4 className='heading-gm-wigt' style={{ color: "#fff" }}>{item?.name || ''}</h4>
                                         </div>
                                     </div>
                                 )
@@ -113,8 +121,24 @@ function Homepage2() {
                         <span className='view-allstream'><button type='button' className='btn-view-all'>View All</button></span>
                     </div>
                     <div className='stream-sec-wap'>
-                        <div className='row-stream-grid'>
-                            <div className='column-wig--stmweb'>
+                        <div className='row-stream-grid-custom'>
+                            {
+                                liveStream?.details?.meta.map((val, index) => {
+                                    return (
+                                        <div key={index} className='column-wig--stmweb'>
+                                            <div className='stm-boxwidgets'>
+                                                <div className='img-product--mt'><img src={val?.thumbnail} alt="web" /></div>
+                                                <div className='disc-shortweb-stm'>
+                                                    <h3 className='headstm--wm'>{val.description || ''}</h3>
+                                                    <span className='name-usr-titl'>{val.name || ''}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                            {/* <div className='column-wig--stmweb'>
                                 <div className='stm-boxwidgets'>
                                     <div className='img-product--mt'><img src={productSteam1} alt="web" /></div>
                                     <div className='disc-shortweb-stm'>
@@ -122,18 +146,17 @@ function Homepage2() {
                                         <span className='name-usr-titl'>Raghav</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div className='column-wig--stmweb'>
-                                <div className='stm-boxwidgets'>
-                                    <div className='img-product--mt'><img src={productSteam1} alt="web" /></div>
-                                    <div className='disc-shortweb-stm'>
-                                        <h3 className='headstm--wm'>Festive Festival Watches Extra 20% Off</h3>
-                                        <span className='name-usr-titl'>Raghav</span>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className='postwap--sectbody'>
+                <div className='container-width'>
+                    <>
+                        <PostSecond profileDetails={profileDetails} onProfileClick={'/profile2'}/>
+                    </>
                 </div>
             </div>
         </div>

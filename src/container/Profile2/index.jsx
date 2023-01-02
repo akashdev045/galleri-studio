@@ -13,8 +13,6 @@ function ProfileSecond() {
     setPostState(val)
   }
 
-
-
   return (
     <div className='dark-theme'>
       <div className="webprofile--warpper">

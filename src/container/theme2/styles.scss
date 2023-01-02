@@ -129,7 +129,29 @@
 }
 
 
+.imgproduct--gm{
+    height: 72px;
+    width: 72px;
 
+    img {
+      height: 100%;
+      width: 100%;
+    }
+}
+
+.row-stream-grid-custom{
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: row;
+}
+
+.carausal-image{
+  height: 450px;
+
+  img{
+    height: 100%;
+  }
+}
 
 
 
