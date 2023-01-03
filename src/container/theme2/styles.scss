@@ -128,10 +128,22 @@
   margin-top: 5px;
 }
 
-
+.item--topcategry{
+  text-align: center;
+  .heading-gm-wigt {
+    font-size: 12px;
+    font-weight: 400;
+    color: #BCBAB1;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
 .imgproduct--gm{
     height: 72px;
     width: 72px;
+    margin: auto;
 
     img {
       height: 100%;

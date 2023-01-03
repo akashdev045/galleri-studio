@@ -105,7 +105,7 @@ function Homepage2() {
                                     <div class='item' key={index}>
                                         <div className='item--topcategry text-center'>
                                             <div className='imgproduct--gm'><img src={item?.thumbnail} alt="" /></div>
-                                            <h4 className='heading-gm-wigt' style={{ color: "#fff" }}>{item?.name || ''}</h4>
+                                            <h4 className='heading-gm-wigt'>{item?.name || ''}</h4>
                                         </div>
                                     </div>
                                 )
