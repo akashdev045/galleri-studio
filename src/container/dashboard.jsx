@@ -5,6 +5,7 @@ import ScrollableBannerImages from '../components/ScrollableBannerImages';
 import './dashboard.scss';
 import Post from '../components/Post';
 import Recommended from '../components/Recommended';
+import LoginBottomModal from '../components/LoginBottomModal';
 
 function Dashboard() {
   return (
