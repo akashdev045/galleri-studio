@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import PostSecond from '../../components/Post2';
-import playVideoIcon from "../../assets/play-icon.svg";
+import PostSecond from '../../../components/Post2';
+import playVideoIcon from "../../../assets/play-icon.svg";
 import ReactOwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.scss";
+import HeaderDark from '../../../components/HeaderDark';
 
 function Homepage2() {
     const [homeData, setHomeData] = useState([])
@@ -137,7 +138,7 @@ function Homepage2() {
             <div className='postwap--sectbody'>
                 <div className='container-width'>
                     <>
-                        <PostSecond profileDetails={profileDetails} onProfileClick={'/profile2'} />
+                        <PostSecond profileDetails={profileDetails} onProfileClick={'/profileDetail?theme=dark'} />
                     </>
                 </div>
             </div>
@@ -163,6 +164,7 @@ function Homepage2() {
 
     return (
         <div className='dark-theme'>
+            <HeaderDark renderRightButton={true} />
             {renderSortedArray()}
         </div>
     )

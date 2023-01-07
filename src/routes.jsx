@@ -5,7 +5,6 @@ import VideoDetails from './components/VideoDetails';
 import Profile from './container/Profile';
 import Dashboard from './container/dashboard';
 import DashboardMain from './container/dashboard';
-import Routes from './routes';
 
 
 const router = createBrowserRouter([
@@ -39,11 +38,19 @@ const router = createBrowserRouter([
   // },
 ]);
 
-function App() {
+function Routes() {
 
   return (
-    <Routes />
+    <div className="mainContainer">
+
+      <div className="bgMain" />
+
+      <div className="responsiveContainer">
+        <RouterProvider router={router} />
+      </div>
+   
+    </div>
   );
 }
 
-export default App;
+export default Routes;

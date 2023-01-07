@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
-import CategoriessContainer from '../components/CategoriessContainer';
-import ScrollableBannerImages from '../components/ScrollableBannerImages';
+import Header from '../../../components/Header';
+import CategoriessContainer from '../../../components/CategoriessContainer';
+import ScrollableBannerImages from '../../../components/ScrollableBannerImages';
 import './dashboard.scss';
-import Post from '../components/Post';
-import Recommended from '../components/Recommended';
-import LoginBottomModal from '../components/LoginBottomModal';
+import Post from '../../../components/Post';
+import Recommended from '../../../components/Recommended';
+import LoginBottomModal from '../../../components/LoginBottomModal';
 
 function Dashboard() {
   return (

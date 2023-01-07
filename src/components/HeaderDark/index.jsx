@@ -6,7 +6,7 @@ import { ReactComponent as Settings } from '../../assets/settings.svg'
 import { ReactComponent as Widget } from '../../assets/widget.svg'
 import './header.scss';
 
-function HeaderSecond({renderRightButton = true}) {
+function HeaderDark({renderRightButton = true}) {
     const navigate = useNavigate();
 
     return (
@@ -16,9 +16,10 @@ function HeaderSecond({renderRightButton = true}) {
                     <div>
                         <ArrowBack onClick={() => navigate(-1)}/>
                     </div>
-                    <p>Ruhi Saikia</p>
+                    <p>Studio</p>
                 </div>
                 {renderRightButton && <div class="headerRight-dark">
+                    <i className="fa fa-sun" onClick={() => navigate('/home?theme=light')}/>
                     <Widget />
                     <Settings />
                     <Search />
@@ -28,4 +29,4 @@ function HeaderSecond({renderRightButton = true}) {
     );
 }
 
-export default HeaderSecond;
+export default HeaderDark;

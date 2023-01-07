@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from '../../components/Button';
-import HeaderSecond from '../../components/Header2';
-import PostSecond from '../../components/Post2';
-import productImg1 from "../../assets/product-image-collect.jpg";
+import Button from '../../../components/Button';
+import HeaderSecond from '../../../components/HeaderDark';
+import PostSecond from '../../../components/Post2';
+import productImg1 from "../../../assets/product-image-collect.jpg";
 import './styles.scss'
 
 function ProfileSecond() {

@@ -5,6 +5,7 @@ img{
   max-width: 100%;
 }
 .mainContainer{
+  position: relative;
 
   .bgMain{
     position: fixed;
@@ -39,4 +40,11 @@ img{
   .mainContainer .responsiveContainer{
     margin-top: 0px;
   }
+}
+
+
+.buttonToggle{
+  position: absolute;
+  right: 30px;
+  top: 0;
 }

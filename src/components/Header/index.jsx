@@ -21,6 +21,7 @@ function Header({renderRightButton = true}) {
                     </p>
                 </div>
                 {renderRightButton && <div class="headerRight">
+                    <i className="fa fa-moon" onClick={() => navigate('/home?theme=dark')}/>
                     <Widget />
                     <Settings />
                     <Search />

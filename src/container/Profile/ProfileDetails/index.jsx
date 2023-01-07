@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from '../../components/Button';
-import Header from '../../components/Header';
-import LoginBottomModal from '../../components/LoginBottomModal';
-import Post from '../../components/Post';
+import Button from '../../../components/Button';
+import Header from '../../../components/Header';
+import LoginBottomModal from '../../../components/LoginBottomModal';
+import Post from '../../../components/Post';
 import './styles.scss'
 
 function ProfileDetails() {
