@@ -8,11 +8,11 @@ import { ReactComponent as ShareIcon } from '../../assets/share-icon.svg'
 import PostSlideBanner from '../postSlideImage';
 import VideoContainer from '../VideoContainer';
 import productImg1 from "../../assets/productImg-1.jpg";
+import dayjs from 'dayjs'
 import './post.scss';
 
-function PostSecond({video = false, postDetails = {}, onProfileClick = ''}) {
+function PostProfileDark({video = false, postDetails = {}, userDetails = {}, onProfileClick = ''}) {
 
-    //const imageDummy = "https://assets.myntassets.com/f_webp,dpr_1.5,q_auto:eco,w_400,c_limit,fl_progressive/assets/images/2022/12/15/2f98dc81-f574-40d9-989f-d4f549cc48291671116151641-47.jpg"
     const navigate = useNavigate();
 
     const goToProfile = () => {
@@ -24,36 +24,41 @@ function PostSecond({video = false, postDetails = {}, onProfileClick = ''}) {
     }
 
     return (
-        <div className="postwarpper--grid">
+        <div className="postwarpper--grid PostProfileDark">
             <div className="header-post-top">
                 <div className='postuser--imgweb'>
-                    <img src={postDetails?.media?.thumbnail ? postDetails?.media?.thumbnail : "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"} alt="image" />
+                    <img src={userDetails?.dp ? userDetails?.dp : "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"} alt="image" />
                 </div>                
                 <div className="post-aside-flex">
                     <h4 className='post-wigtname-usr' onClick={() => goToProfile()}>{postDetails.title || ''}</h4>
-                    <p className='poste-datetime'>Posted on 12 June</p>
+                    {postDetails?.createdAt && <p className='poste-datetime'>Posted on {dayjs(postDetails?.createdAt).format('DD MMM')}</p>}
                 </div>
             </div>
             <div className='banner-sliderpost'>
-                {/* {
-                    video ?<VideoContainer /> : <PostSlideBanner imageData={postDetails?.media}/>
-                } */}
-                <PostSlideBanner imageData={postDetails?.media}/>
+                {
+                    postDetails?.content?.length ?
+                        <PostSlideBanner imageData={postDetails?.content} />
+                     : null
+                }
+                 {/* {
+                     video ?<VideoContainer /> : 
+                 } */}
             </div>
             <div className="relatedContent-post">
-                {postDetails?.overlayOptions?.details?.meta?.map((val, index) => {
+                {postDetails?.products?.length ? 
+                postDetails?.products?.map((val, index) => {
                     return (
                         <div className="grid-related-postcol" key={index}>
                             <div className='prodt--img-relatd'>
                             <img src={val?.thumbnail ? val?.thumbnail : productImg1} alt="postImage" /></div>
                             <div className="related-post-content">
-                                <h4 className="title-prodt-webhead">{val?.title || ''}</h4>
+                                <h4 className="title-prodt-webhead">{val?.tilte || ''}</h4>
                                 <span className="price-tagpost">₹{val?.price || ''}</span>
-                                <span className="price-discpost">{val?.discount || ''}</span>
+                                <span className="price-discpost">{val?.description || ''}</span>
                             </div>
                         </div>
                     )
-                })}
+                }) : null}
             </div>
             <div className='footer-postdisc-web'>
                 <div className="header-iconweb">
@@ -66,11 +71,11 @@ function PostSecond({video = false, postDetails = {}, onProfileClick = ''}) {
                     </div>   
                 </div>
                 <div className="post-discarea--widgit">
-                    <p>{postDetails?.description}</p>
+                    <p>{postDetails?.caption}</p>
                 </div>
             </div>
         </div>
     );
 }
 
-export default PostSecond;
+export default PostProfileDark;

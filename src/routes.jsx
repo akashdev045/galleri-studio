@@ -4,13 +4,12 @@ import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-d
 import VideoDetails from './components/VideoDetails';
 import Profile from './container/Profile';
 import Dashboard from './container/dashboard';
-import DashboardMain from './container/dashboard';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <DashboardMain />
+    element: <Dashboard />
   },
   {
     path: "/profileDetail",

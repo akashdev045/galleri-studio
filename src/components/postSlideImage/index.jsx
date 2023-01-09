@@ -12,8 +12,7 @@ import "./styles.scss";
 // import required modules
 import { Pagination } from "swiper";
 
-export default function LazyLoadImage() {
-    
+export default function LazyLoadImage({imageData}) {
     return (
         <>
             <Swiper
@@ -23,15 +22,12 @@ export default function LazyLoadImage() {
                 modules={[Pagination]}
                 className="mySwiper"
             >
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
-                <SwiperSlide><img src={bannerPostSlide} alt="postImage" /></SwiperSlide>
+                {
+                    imageData.map(val => {
+                        const image = val?.url || val?.mediaSource
+                        return <SwiperSlide><img src={image ? image : bannerPostSlide} alt="postImage" /></SwiperSlide>
+                    })
+                }
             </Swiper>
         </>
     );

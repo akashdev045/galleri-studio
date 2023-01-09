@@ -7,7 +7,8 @@ function DashboardMain() {
 
     const location = useLocation();
 
-    if (!location.search.includes('dark')) {
+    // if (!location.search.includes('dark')) {
+    if (false) {
         return <Dashboard />
     }else{
         return <Homepage2 /> 

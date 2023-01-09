@@ -7,7 +7,8 @@ function Profile() {
 
     const location = useLocation();
 
-    if (!location.search.includes('dark')) {
+    // if (!location.search.includes('dark')) {
+    if (false) {
         return <ProfileDetails />
     }else{
         return <ProfileSecond /> 

@@ -9,10 +9,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "./styles.scss";
 import HeaderDark from '../../../components/HeaderDark';
+import { useNavigate } from 'react-router-dom';
 
 function Homepage2() {
     const [homeData, setHomeData] = useState([])
     const [componentSort, setComponentSort] = useState([])
+    const navigate = useNavigate();
 
     const getHomeData = async () => {
 
@@ -25,7 +27,7 @@ function Homepage2() {
         await axios(config)
             .then(function (response) {
                 setHomeData(response.data)
-                setComponentSort(response.data.map(val => val.component))
+                setComponentSort(response?.data?.map(val => val.component))
             })
             .catch(function (error) {
                 console.log(error);
@@ -39,6 +41,7 @@ function Homepage2() {
     const heroBanners = homeData && homeData.length && homeData?.filter(item => item.name === "HERO_BANNER_CAROUSEL")[0] || {}
     const RoundedTopInfluencers = homeData && homeData.length && homeData?.filter(item => item.name === "ROUNDED_IMAGE_CAROUSEL")[0] || {}
     const liveStream = homeData && homeData.length && homeData?.filter(item => item.name === "MINI_IMAGE_CAROUSEL")[0] || {}
+    const trendingStream = homeData && homeData.length && homeData?.filter(item => item.name === "IMAGE_CAROUSEL_MINI")[0] || {}
     const profile = homeData && homeData.length && homeData?.filter(item => item.name === "FEED_TIMELINE")[0] || {}
     const profileDetails = profile?.details?.meta[0]?.details
 
@@ -65,6 +68,14 @@ function Homepage2() {
         )
     }
 
+    const handleProfileCLick = (item) => {
+        navigate('/profileDetail', {
+            state:{
+                userName: item.externalLink.split('/').at(-1)
+            }
+        })
+    }
+
     const RenderTopInfluencer = () => {
         return (
             <div className='top-influence-sect'>
@@ -85,7 +96,7 @@ function Homepage2() {
                         >
                             {RoundedTopInfluencers?.details?.meta?.map((item, index) => {
                                 return (
-                                    <div class='item' key={index}>
+                                    <div class='item' key={index} onClick={() => handleProfileCLick(item)}>
                                         <div className='item--topcategry text-center'>
                                             <div className='imgproduct--gm'><img src={item?.thumbnail} alt="" /></div>
                                             <h4 className='heading-gm-wigt'>{item?.name || ''}</h4>
@@ -98,6 +109,38 @@ function Homepage2() {
                 </div>
             </div>
 
+        )
+    }
+
+    const RenderTrendingStores = () => {
+        return (
+            <div className='live-stream-wap'>
+                <div className='container-width'>
+                    <div className='heading-sect stream-heading'>
+                        <h2 className='title-h2-head'><img src={playVideoIcon} alt='Play icon' />Trending Stores</h2>
+                        <span className='view-allstream'><button type='button' className='btn-view-all'>View All</button></span>
+                    </div>
+                    <div className='stream-sec-wap'>
+                        <div className='row-stream-grid-custom'>
+                            {
+                                trendingStream?.details?.meta.map((val, index) => {
+                                    return (
+                                        <div key={index} className='column-wig--stmweb'>
+                                            <div className='stm-boxwidgets'>
+                                                <div className='img-product--mt'><img src={val?.thumbnail[0]} alt="web" /></div>
+                                                <div className='disc-shortweb-stm'>
+                                                    <h3 className='headstm--wm'>{val.description || ''}</h3>
+                                                    <span className='name-usr-titl'>{val.name || ''}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
         )
     }
 
@@ -137,9 +180,7 @@ function Homepage2() {
         return (
             <div className='postwap--sectbody'>
                 <div className='container-width'>
-                    <>
-                        <PostSecond profileDetails={profileDetails} onProfileClick={'/profileDetail?theme=dark'} />
-                    </>
+                    <PostSecond postDetails={profileDetails} onProfileClick={'/profileDetail?theme=dark'} />
                 </div>
             </div>
 
@@ -151,11 +192,17 @@ function Homepage2() {
         componentSort.length && componentSort.forEach(val => {
             if(val === 'HERO_BANNER_CAROUSEL'){
                 arr.push(<RenderBanner />)
-            }else if(val === 'ROUNDED_IMAGE_CAROUSEL'){
+            }
+            else if(val === 'ROUNDED_IMAGE_CAROUSEL'){
                 arr.push(<RenderTopInfluencer />)
-            }else if(val === 'MINI_IMAGE_CAROUSEL'){
+            }
+            else if(val === 'MINI_IMAGE_CAROUSEL'){
                 arr.push(<RenderLiveStream />)
-            }else if(val === 'FEED_TIMELINE'){
+            }
+            else if(val === 'IMAGE_CAROUSEL_MINI'){
+                arr.push(<RenderTrendingStores />)
+            }
+            else if(val === 'FEED_TIMELINE'){
                 arr.push(<RenderPost />)
             }
         })
@@ -164,7 +211,7 @@ function Homepage2() {
 
     return (
         <div className='dark-theme'>
-            <HeaderDark renderRightButton={true} />
+            {/* <HeaderDark renderRightButton={true} /> */}
             {renderSortedArray()}
         </div>
     )

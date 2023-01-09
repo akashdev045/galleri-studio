@@ -93,6 +93,7 @@
     flex-wrap: wrap;
     align-items: center;
     .tabmenu-items{
+        margin-right: 10px;
         .btn-menu-tab{
             color: #BCBCBC;
             font-size: 16px;
@@ -214,4 +215,10 @@
     border: 0;
     font-size: 10px;
     font-weight: 400;
+}
+
+.noData-msg{
+    color: white;
+    margin-top: 10px;
+    text-align: center;
 }
