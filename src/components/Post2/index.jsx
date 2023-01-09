@@ -16,21 +16,26 @@ function PostSecond({video = false, postDetails = {}, onProfileClick = ''}) {
     const navigate = useNavigate();
 
     const goToProfile = () => {
-        if(onProfileClick){
-            navigate(onProfileClick);
+        //onProfileClick
+        if(true){
+            navigate('/profileDetail', {
+                state:{
+                    userName: 'swagata_dev'
+                }
+            })
             return
         }
-        navigate("/profileDetail");
+        // navigate("/profileDetail");
     }
 
     return (
         <div className="postwarpper--grid">
-            <div className="header-post-top">
+            <div className="header-post-top cursorPointer" onClick={() => goToProfile()}>
                 <div className='postuser--imgweb'>
                     <img src={postDetails?.media?.thumbnail ? postDetails?.media?.thumbnail : "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"} alt="image" />
                 </div>                
                 <div className="post-aside-flex">
-                    <h4 className='post-wigtname-usr' onClick={() => goToProfile()}>{postDetails.title || ''}</h4>
+                    <h4 className='post-wigtname-usr'>{postDetails.title || ''}</h4>
                     <p className='poste-datetime'>Posted on 12 June</p>
                 </div>
             </div>

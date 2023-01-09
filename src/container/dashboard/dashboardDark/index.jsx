@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PostSecond from '../../../components/Post2';
 import playVideoIcon from "../../../assets/play-icon.svg";
+import trending from "../../../assets/trending.svg";
 import ReactOwlCarousel from 'react-owl-carousel';
+
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import "swiper/css";
@@ -117,7 +119,9 @@ function Homepage2() {
             <div className='live-stream-wap'>
                 <div className='container-width'>
                     <div className='heading-sect stream-heading'>
-                        <h2 className='title-h2-head'><img src={playVideoIcon} alt='Play icon' />Trending Stores</h2>
+                        <h2 className='title-h2-head'>
+                        <i class="fa fa-fire" aria-hidden="true"></i>
+                        Trending Stores</h2>
                         <span className='view-allstream'><button type='button' className='btn-view-all'>View All</button></span>
                     </div>
                     <div className='stream-sec-wap'>
@@ -125,7 +129,7 @@ function Homepage2() {
                             {
                                 trendingStream?.details?.meta.map((val, index) => {
                                     return (
-                                        <div key={index} className='column-wig--stmweb'>
+                                        <div key={index} onClick={() => window.location.replace(val.externalLink)} className='cursorPointer column-wig--stmweb'>
                                             <div className='stm-boxwidgets'>
                                                 <div className='img-product--mt'><img src={val?.thumbnail[0]} alt="web" /></div>
                                                 <div className='disc-shortweb-stm'>
