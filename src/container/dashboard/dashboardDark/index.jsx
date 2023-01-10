@@ -129,7 +129,7 @@ function Homepage2() {
                             {
                                 trendingStream?.details?.meta.map((val, index) => {
                                     return (
-                                        <div key={index} onClick={() => window.location.replace(val.externalLink)} className='cursorPointer column-wig--stmweb'>
+                                        <div key={index} onClick={() => window.open(val.externalLink)} className='cursorPointer column-wig--stmweb'>
                                             <div className='stm-boxwidgets'>
                                                 <div className='img-product--mt'><img src={val?.thumbnail[0]} alt="web" /></div>
                                                 <div className='disc-shortweb-stm'>
