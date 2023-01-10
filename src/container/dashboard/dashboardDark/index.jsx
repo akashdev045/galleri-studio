@@ -45,7 +45,7 @@ function Homepage2() {
     const liveStream = homeData && homeData.length && homeData?.filter(item => item.name === "MINI_IMAGE_CAROUSEL")[0] || {}
     const trendingStream = homeData && homeData.length && homeData?.filter(item => item.name === "IMAGE_CAROUSEL_MINI")[0] || {}
     const profile = homeData && homeData.length && homeData?.filter(item => item.name === "FEED_TIMELINE")[0] || {}
-    const profileDetails = profile?.details?.meta[0]?.details
+    const postArray = profile?.details?.meta
 
     const RenderBanner = () => {
         return (<div className='banner-slider-home'>
@@ -184,7 +184,12 @@ function Homepage2() {
         return (
             <div className='postwap--sectbody'>
                 <div className='container-width'>
-                    <PostSecond postDetails={profileDetails} onProfileClick={'/profileDetail?theme=dark'} />
+                    {
+                        postArray.length ?
+                        postArray.map((val, index) => {
+                            return <PostSecond key={index} postDetails={val.details} onProfileClick={'/profileDetail?theme=dark'} />
+                        }) : null
+                    }
                 </div>
             </div>
 
